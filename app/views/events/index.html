@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Eventos</h1>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <% @events.each do |event| %>
+        <p><%= event.name %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
