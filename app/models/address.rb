@@ -15,6 +15,21 @@
 #  updated_at    :datetime         not null
 #
 
+require 'geocode_api'
+
 class Address < ActiveRecord::Base
   belongs_to :event
+  before_create :get_address_coordinates
+
+  private
+
+  def get_address_coordinates
+    coordinates = GeocodeApi.get_coordinates(formated_address)
+    self.coordinates_x = coordinates['lat']
+    self.coordinates_y = coordinates['lng']
+  end
+
+  def formated_address
+    "#{street} #{number}, #{state}, #{city}"
+  end
 end
