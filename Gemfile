@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'nested_form'
 gem 'simple_form'
 gem 'annotate'
+gem 'httparty'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -39,7 +40,16 @@ gem 'annotate'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rails-pry'
+  gem 'pry'
   gem 'quiet_assets'
+  gem 'rspec-rails'
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "database_cleaner"
+  gem "guard-rspec"
+  gem 'fuubar'
 end
 
 group :development do
