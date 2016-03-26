@@ -10,15 +10,10 @@
 #  updated_at  :datetime         not null
 #
 
-
 FactoryGirl.define do
   factory :event do
     name "Evento de ruby"
-    user_id 1
-    skill 1
-    energy 1
-    luck 1
-    gold 1
+    date DateTime.now
+    description "lorem ipsum"
   end
-
 end
