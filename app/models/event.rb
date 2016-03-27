@@ -13,4 +13,6 @@
 class Event < ActiveRecord::Base
   has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address
+
+  scope :by_month, -> (month) { where("extract(month from date) = ?", month) }
 end

@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    now = DateTime.now
+    @events = Event.by_month(now.month)
   end
 
   def new
@@ -33,7 +34,9 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name,
+    params["event"]["date"] = format_date(params["event"]["date"])
+    params.require(:event).permit(
+      :name,
       :date,
       :description,
       address_attributes: [
@@ -47,5 +50,10 @@ class EventsController < ApplicationController
         :coordinates_y,
         :event_id
       ])
+  end
+
+  def format_date(date)
+    date_arr = date.split("/")
+    "#{date_arr[2]}-#{date_arr[1]}-#{date_arr[0]}".to_datetime
   end
 end
