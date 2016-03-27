@@ -27,6 +27,7 @@ gem 'nested_form'
 gem 'simple_form'
 gem 'annotate'
 gem 'httparty'
+gem 'figaro'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
