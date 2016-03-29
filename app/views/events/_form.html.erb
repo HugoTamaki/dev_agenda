@@ -9,8 +9,17 @@
         <%= f.input :description, as: :text, label: 'Descrição', input_html: {class: 'form-control', rows: 10} %>
       </div>
       <div class="form-group">
+        <%= f.input :url, as: :string, label: 'Link para o seu evento', input_html: {class: 'form-control'} %>
+      </div>
+      <div class="form-group">
         <div class="input-append date" id="date" data-date-format="dd-mm-yyyy">
-          <input class="span2" size="16" type="text" name="event[date]" id="event_date">
+          Data de início: <input class="form-control" size="16" type="text" name="event[date]" id="event_date">
+          <span class="add-on"><i class="icon-th"></i></span>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-append date" id="date" data-date-format="dd-mm-yyyy">
+          Data de fim: <input class="form-control" size="16" type="text" name="event[end_date]" id="event_end_date">
           <span class="add-on"><i class="icon-th"></i></span>
         </div>
       </div>

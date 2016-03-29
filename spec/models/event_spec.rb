@@ -8,6 +8,8 @@
 #  description :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  end_date    :datetime
+#  url         :string
 #
 
 require "rails_helper"

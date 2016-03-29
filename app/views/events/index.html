@@ -3,9 +3,23 @@
 
   <div class="row">
     <div class="col-lg-12">
-      <% @events.each do |event| %>
-        <p><%= event.name %></p>
-      <% end %>
+      <div id="calendar"></div>
+    </div>
+    <div class="col-lg-12">
+
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#calendar').fullCalendar({
+      events: <%= raw(@events.to_json) %>,
+      eventClick: function (event) {
+        var redirect = window.open(event.url, '_blank')
+        redirect.location
+        return false
+      }
+    })
+  })
+</script>

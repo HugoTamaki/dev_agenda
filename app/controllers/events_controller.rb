@@ -1,12 +1,22 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
+
   def index
     now = DateTime.now
     @events = Event.by_month(now.month)
+      .map {|event| {title: event.name, 
+                     start: event.date.strftime('%Y-%m-%d'),
+                     end: event.end_date.strftime('%Y-%m-%d'),
+                     url: "events/#{event.id}"}}
   end
 
   def new
     @event = Event.new
     @event.build_address
+  end
+
+  def show
+    
   end
 
   def edit
